@@ -1,29 +1,6 @@
 #include<stdio.h>       //algorithm to find kth max/min elem in an array in o(n) time.
                         //best and avg => o(n), worst case => o(n)
 
-
-int partitioni(int arr[], int left, int right){
-    int i=left, j=right;
-    int pivot = arr[left];
-    while(i<j){
-        do{
-            ++i;
-        }while(arr[i]<=pivot);
-        do{
-            ++j;
-        }while(arr[j]>pivot);
-        if(i<j){
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
-    }
-    arr[left] = arr[j];
-    arr[j] = pivot;
-    return j;
-}
-
-
 int  partition(int arr[], int left, int right){
     int i = left, j = right;
     while(i<j){
@@ -81,8 +58,3 @@ int main(){
 	    printf("%d\n", kthSmallestElement);
 	}
 }
-/*
-12
-571 600 134 32 52 376 108 29 500 553 684 422
-2
-*/
